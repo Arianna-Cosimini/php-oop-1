@@ -15,6 +15,23 @@ class Movie {
         $this->autore = $_autore;
     }
 
+    public function getDurataInMinuti() {
+        // divido la stringa della durata crteando un array
+        $parts = explode(' ', $this->durata);
+        
+        // ottengo il primo elemento dell'array
+        $durataInMinuti = (int)$parts[0];
+        
+        return $durataInMinuti;
+    }
+
+    public function ordinaPerDurata($filmArray) {
+        // Ordino l'array di film in base alla durata in minuti
+        usort($filmArray, function($a, $b) {
+            return $a->getDurataInMinuti() - $b->getDurataInMinuti();
+        });
+        return $filmArray;
+    }
     
    
 }
@@ -37,6 +54,8 @@ $films = [
     $movie4,
 
 ];
+
+$films = $movie1->ordinaPerDurata($films);
 
 ?>
 
