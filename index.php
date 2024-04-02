@@ -14,16 +14,29 @@ class Movie {
         $this->durata = $_durata;
         $this->autore = $_autore;
     }
+
+    
+   
 }
 
 
 
 
-$movie1 = new Movie("Harry Potter", "Fantasy", "2 ore", " J. K. Rowling");
+$movie1 = new Movie ("Harry Potter", "Fantasy", "120 minuti", " J. K. Rowling");
 $movie2 = new Movie ("Spiderman", "Fantasy", "121 minuti", "John Semper Jr.");
-$movie2 = new Movie ("Quasi amici", "commedia/drammatico", "112 minuti", " Olivier Nakache e Éric Toledano.");
-$movie2 = new Movie ("La vita è bella", "drammatico", "124 minuti", "Roberto Benigni");
+$movie3 = new Movie ("Quasi amici", "commedia/drammatico", "112 minuti", " Olivier Nakache e Éric Toledano.");
+$movie4 = new Movie ("La vita è bella", "drammatico", "124 minuti", "Roberto Benigni");
 
+
+
+$films = [
+
+    $movie1,
+    $movie2,
+    $movie3,
+    $movie4,
+
+];
 
 ?>
 
@@ -43,6 +56,20 @@ $movie2 = new Movie ("La vita è bella", "drammatico", "124 minuti", "Roberto Be
     <title>Classi PHP</title>
 </head>
 <body>
+
+<ul>
+        <?php
+        foreach($films as $film) {
+
+            echo "
+            <li>
+                " . $film->titolo . ", " . $film->genere . ", " . $film->durata . "<br>
+                " . $film->autore . "
+            </li>";
+
+        }
+        ?>
+    </ul>
 
 
 
